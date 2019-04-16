@@ -2,7 +2,7 @@
 #
 # Alunos: 
 # - aluno A: Lais Nascimento da Silva, laisns@al.insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno B: William Augusto Reis da Silva, william.silva.ismart@gmail.com
 
 def carregar_cenarios():
     cenarios = {
@@ -64,18 +64,19 @@ def main():
         print('-'*len(cenario_atual["titulo"]))
         print(cenario_atual["descricao"])
         
-                        
-
+                      
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
+            print("Escolha sua opção: ")
+            print()
+            for ação, descrição in opcoes.items():
+                print(f'{ação}: {descrição}')
+            escolha = input("O que você quer fazer? ")
 
-            # Aluno B: substitua este comentário e a linha abaixo pelo código
-            # para pedir a escolha do usuário.
-            escolha = ""
-
+            
             if escolha in opcoes:
                 nome_cenario_atual = escolha
             else:
