@@ -31,11 +31,27 @@ def carregar_cenarios():
         },
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
-            "descricao": "Voce esta na biblioteca",
+            "descricao": "Voce esta na biblioteca,há um monstro que taca livros nas pessoas",
             "opcoes": {
-                "inicio": "Voltar para o saguao de entrada"
+                "inicio": "Voltar para o saguao de entrada",
+                "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
             }
-        }
+        },
+        "combate":{
+                "titulo":"Ganhar ou perder", 
+                "descricao" : "Você deve escolher como golpear o monstro",
+                "opcoes":{
+                        "chute no calcanhar": "Você irá chutar o calcanhar do monstro",
+                        "bicuda no pote":"você irá dar um chute na cabeça do monstro"
+                        }
+                },
+        "chute no calcanhar":{"titulo":"trollamos você",
+                              "descricao":"O calcahar do monstro é muito forte, você perdeu este combate!",
+                              "opcoes":{}
+                              },
+        "bicuda no pote":{"titulo":"você acertou em cheio",
+                          "descricao":"esse golpe é fatal para o monstro, você venceu e ficou mais forte",
+                          "opcoes":{"inicio": "Voltar para o saguao de entrada"}}
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -89,3 +105,4 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
+
