@@ -11,7 +11,8 @@ def carregar_cenarios():
             "descricao": "Você esta no saguão de entrada do Insper",
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
+                "biblioteca": "Ir para a biblioteca",
+                "fab lab": "Ir ao FABLAB"
             }
         },
         "andar professor": {
@@ -38,8 +39,8 @@ def carregar_cenarios():
             }
         },
         "combate":{
-                "titulo":"Ganhar ou perder", 
-                "descricao" : "Você deve escolher como golpear o monstro",
+                "titulo":"E aí, vai encarar?", 
+                "descricao" : "Você deve escolher como golpear o monstro, caso deseje lutar, ou ir para outro local",
                 "opcoes":{
                         "chute no calcanhar": "Você irá chutar o calcanhar do monstro",
                         "bicuda no pote":"você irá dar um chute na cabeça do monstro"
@@ -51,10 +52,44 @@ def carregar_cenarios():
                 "opcoes": {}                              
         },
         "bicuda no pote":{
-                "titulo":"Você acertou em cheio!",
+                "titulo": "Você acertou em cheio!",
                 "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte!",
                 "opcoes":{
                         "inicio": "Voltar para o saguão de entrada"
+            }
+        },
+        "fab lab":{
+                "titulo": "O maior lab de engenhocas do país",
+                "descricao": "Você está no FABLAB!",
+                "opcoes":{
+                        "tele": "Você irá se teletransportar para algum local. E aí, vai arriscar?!",
+                        "recepcao": "Sou covarde, hehe. Quero voltar ao início"                        
+            }
+        },
+        "tele":{
+              "titulo": "VOCÊ É MUITO SORTUDO!!!!",
+              "descricao": "Você ganhou 5 pontos. Isso vai garantir que você tenha melhor possibilidade de conseguir o seu objetivo",
+              "opcoes":{
+                      "recepcao": "Voltar ao início",
+                      "andar professor": "Ser corajoso e já ir enfrentar o professor",
+                      "biblioteca": "Ir à biblioteca, sou uma pessoa estudiosa :D"
+            }
+        },
+        "recepcao": {
+            "titulo": "De volta ao saguão do perigo",
+            "descricao": "Você esta no saguão de entrada do Insper",
+            "opcoes":{
+                "andar professor": "Tomar o elevador para o andar do professor",
+                "biblioteca": "Ir para a biblioteca",
+                "fablab": "Ir ao FABLAB"
+            }
+        },
+        "fablab":{
+            "titulo": "Achou que ia ganhar pontos de novo, né?",
+            "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será)",
+            "opcoes":{
+                    "andar professor": "Ir enfrentar o professor. A hora de entregar o EP está chegando!",
+                    "biblioteca": "Ir à biblioteca"
             }
         }
     }
