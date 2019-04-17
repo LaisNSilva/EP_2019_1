@@ -7,8 +7,8 @@
 def carregar_cenarios():
     cenarios = {
         "inicio": {
-            "titulo": "Saguao do perigo",
-            "descricao": "Voce esta no saguao de entrada do insper",
+            "titulo": "Saguão do perigo",
+            "descricao": "Você esta no saguão de entrada do Insper",
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
                 "biblioteca": "Ir para a biblioteca"
@@ -16,24 +16,24 @@ def carregar_cenarios():
         },
         "andar professor": {
             "titulo": "Andar do desespero",
-            "descricao": "Voce chegou ao andar da sala do seu professor",
+            "descricao": "Você chegou ao andar da sala do seu professor",
             "opcoes": {
-                "inicio": "Tomar o elevador para o saguao de entrada",
+                "inicio": "Tomar o elevador para o saguão de entrada",
                 "professor": "Falar com o professor"
             }
         },
         "professor": {
             "titulo": "O monstro do Python",
-            "descricao": "Voce foi pedir para o professor adiar o EP. "
+            "descricao": "Você foi pedir para o professor adiar o EP. "
                          "O professor revelou que é um monstro disfarçado "
                          "e devorou sua alma.",
             "opcoes": {}
         },
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
-            "descricao": "Voce esta na biblioteca,há um monstro que taca livros nas pessoas",
+            "descricao": "Você está na biblioteca, há um monstro que taca livros nas pessoas",
             "opcoes": {
-                "inicio": "Voltar para o saguao de entrada",
+                "inicio": "Voltar para o saguão de entrada",
                 "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
             }
         },
@@ -43,15 +43,20 @@ def carregar_cenarios():
                 "opcoes":{
                         "chute no calcanhar": "Você irá chutar o calcanhar do monstro",
                         "bicuda no pote":"você irá dar um chute na cabeça do monstro"
-                        }
-                },
-        "chute no calcanhar":{"titulo":"trollamos você",
-                              "descricao":"O calcahar do monstro é muito forte, você perdeu este combate!",
-                              "opcoes":{}
-                              },
-        "bicuda no pote":{"titulo":"você acertou em cheio",
-                          "descricao":"esse golpe é fatal para o monstro, você venceu e ficou mais forte",
-                          "opcoes":{"inicio": "Voltar para o saguao de entrada"}}
+            }
+        },
+        "chute no calcanhar":{
+                "titulo": "Trollamos você",
+                "descricao":"O calcanhar do monstro é muito forte, você perdeu este combate :(",
+                "opcoes": {}                              
+        },
+        "bicuda no pote":{
+                "titulo":"Você acertou em cheio!",
+                "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte!",
+                "opcoes":{
+                        "inicio": "Voltar para o saguão de entrada"
+            }
+        }
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -75,7 +80,6 @@ def main():
     while not game_over:
         cenario_atual = cenarios[nome_cenario_atual]
 
-        
         print(cenario_atual["titulo"])
         print('-'*len(cenario_atual["titulo"]))
         print(cenario_atual["descricao"])
@@ -99,7 +103,7 @@ def main():
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
 
-    print("Você morreu!")
+    print("Você morreu! :(")
 
 
 # Programa principal.
