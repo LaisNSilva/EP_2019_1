@@ -53,7 +53,7 @@ def carregar_cenarios():
         },
         "bicuda no pote":{
                 "titulo": "Você acertou em cheio!",
-                "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte!",
+                "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS!",
                 "opcoes":{
                         "inicio": "Voltar para o saguão de entrada"
             }
@@ -90,6 +90,45 @@ def carregar_cenarios():
             "opcoes":{
                     "andar professor": "Ir enfrentar o professor. A hora de entregar o EP está chegando!",
                     "biblioteca": "Ir à biblioteca"
+            }
+        },
+        "andar das portas":{
+                "titulo":"andar de escolhas",
+                "descricao":"você deve escolher uma das portas",
+                "opcoes":{
+                        "porta 1":"",
+                        "porta 2":""} 
+        },
+        "porta 1":{
+                "titulo":"A PORTA DO MAL!!!!",
+                "descricao":"Você não tem muita sorte, deu de cara com o monstro EIKOLAS!!!!!!. Você pode entrar em combate com o monstro ou se teletransportar",
+                "opcoes":{
+                        "combate":"enfrentar o monstro para tentar ganhar pontos",
+                        "teletransporte":" você pode fugir do monstro"
+            }
+        },
+        "teletransporte":{
+                "titulo": "SE DEU MAL!!",
+                "descricao": "Você perdeu 5 pontos, VISH!!!",
+                "opcoes":{
+                        "inicio": "Voltar à recepção",
+                        "andar professor": "Ir para o andar do professor"
+            }            
+        },
+        "porta 2":{
+                "titulo": "VOCÊ É UM SORTUDO",
+                "descricao": "você foi feliz em sua escolha, ganhou 8 pontos",
+                "opcoes":{
+                        "recepcao": "Voltar à recepção",
+                        "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",                                              
+            }              
+        },
+        "return":{
+                "titulo": "Saguão do perigo",
+            "descricao": "Você esta no saguão de entrada do Insper",
+            "opcoes": {
+                "andar professor": "Tomar o elevador para o andar do professor",
+                "biblioteca": "Ir para a biblioteca"
             }
         }
     }
