@@ -7,35 +7,35 @@
 def carregar_cenarios():
     cenarios = {
         "inicio": {
-            "titulo": "Saguão do perigo",
-            "descricao": "Você esta no saguão de entrada do Insper",
-            "opcoes": {
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca",
-                "fab lab": "Ir ao FABLAB"
+                "titulo": "Saguão do perigo",
+                "descricao": "Você esta no saguão de entrada do Insper",
+                "opcoes": {
+                    "andar professor": "Tomar o elevador para o andar do professor",
+                    "biblioteca": "Ir para a biblioteca",
+                    "fab lab": "Ir ao FABLAB"
             }
         },
         "andar professor": {
-            "titulo": "Andar do desespero",
-            "descricao": "Você chegou ao andar da sala do seu professor",
-            "opcoes": {
-                "inicio": "Tomar o elevador para o saguão de entrada",
-                "professor": "Falar com o professor"
+                "titulo": "Andar do desespero",
+                "descricao": "Você chegou ao andar da sala do seu professor",
+                "opcoes": {
+                    "recepcao": "Tomar o elevador para o saguão de entrada",
+                    "professor": "Falar com o professor"
             }
         },
         "professor": {
-            "titulo": "O monstro do Python",
-            "descricao": "Você foi pedir para o professor adiar o EP. "
-                         "O professor revelou que é um monstro disfarçado "
-                         "e devorou sua alma.",
-            "opcoes": {}
+                "titulo": "O monstro do Python",
+                "descricao": "Você foi pedir para o professor adiar o EP. "
+                             "O professor revelou que é um monstro disfarçado "
+                             "e devorou sua alma.",
+                "opcoes": {}
         },
         "biblioteca": {
-            "titulo": "Caverna da tranquilidade",
-            "descricao": "Você está na biblioteca, há um monstro que taca livros nas pessoas",
-            "opcoes": {
-                "inicio": "Voltar para o saguão de entrada",
-                "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
+                "titulo": "Caverna da tranquilidade",
+                "descricao": "Você está na biblioteca, há um monstro que taca livros nas pessoas",
+                "opcoes": {
+                    "recepcao": "Voltar para o saguão de entrada",
+                    "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
             }
         },
         "combate":{
@@ -76,28 +76,28 @@ def carregar_cenarios():
             }
         },
         "recepcao": {
-            "titulo": "De volta ao saguão do perigo",
-            "descricao": "Você esta no saguão de entrada do Insper",
-            "opcoes":{
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca",
-                "fablab": "Ir ao FABLAB"
+                "titulo": "De volta ao saguão do perigo",
+                "descricao": "Você esta no saguão de entrada do Insper",
+                "opcoes":{
+                    "andar professor": "Tomar o elevador para o andar do professor",
+                    "fablab": "Ir ao FABLAB"
             }
         },
         "fablab":{
-            "titulo": "Achou que ia ganhar pontos de novo, né?",
-            "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será)",
-            "opcoes":{
+                "titulo": "Achou que ia ganhar pontos de novo, né?",
+                "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será)",
+                "opcoes":{
                     "andar professor": "Ir enfrentar o professor. A hora de entregar o EP está chegando!",
-                    "biblioteca": "Ir à biblioteca"
+                    "biblioteca": "Ir à biblioteca",
+                    "andar das portas": "Ir ao andar desconhecido por todos"
             }
         },
         "andar das portas":{
                 "titulo":"andar de escolhas",
                 "descricao":"você deve escolher uma das portas",
                 "opcoes":{
-                        "porta 1":"",
-                        "porta 2":""} 
+                        "porta 1":"Desejo ir a esta porta a qual não possuo conhecimento sobre o que tem",
+                        "porta 2":"Desejo ir a esta outra porta que também não tenho a mínima ideia"} 
         },
         "porta 1":{
                 "titulo":"A PORTA DO MAL!!!!",
@@ -109,26 +109,15 @@ def carregar_cenarios():
         },
         "teletransporte":{
                 "titulo": "SE DEU MAL!!",
-                "descricao": "Você perdeu 5 pontos, VISH!!!",
-                "opcoes":{
-                        "inicio": "Voltar à recepção",
-                        "andar professor": "Ir para o andar do professor"
-            }            
+                "descricao": "Você foi teletransportado para o mundo do nada :(",
+                "opcoes":{}            
         },
         "porta 2":{
                 "titulo": "VOCÊ É UM SORTUDO",
                 "descricao": "você foi feliz em sua escolha, ganhou 8 pontos",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
-                        "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",                                              
-            }              
-        },
-        "return":{
-                "titulo": "Saguão do perigo",
-            "descricao": "Você esta no saguão de entrada do Insper",
-            "opcoes": {
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
+                        "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",
             }
         }
     }
