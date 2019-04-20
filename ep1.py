@@ -103,7 +103,7 @@ def carregar_cenarios():
                 "titulo":"A PORTA DO MAL!!!!",
                 "descricao":"Você não tem muita sorte, deu de cara com o monstro EIKOLAS!!!!!!. Você pode entrar em combate com o monstro ou se teletransportar",
                 "opcoes":{
-                        "combate":"enfrentar o monstro para tentar ganhar pontos",
+                        "combate1":"enfrentar o monstro para tentar ganhar pontos",
                         "teletransporte":" você pode fugir do monstro"
             }
         },
@@ -119,13 +119,39 @@ def carregar_cenarios():
                         "recepcao": "Voltar à recepção",
                         "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",
             }
+        },
+        "combate1":{
+                "titulo": "O pequeno combate",
+                "descricao": " Você foi muito corajoso em escolher enfrentrar esse monstro, escolha o golpe",
+                "opcoes":{
+                        "chute na barriga":"Você irá dar um chute muito forte na barriga do EIKOLAS",
+                        "murro no olho":"Um soco muito forte"
+            }
+        },
+        "chute na barriga":{
+                "titulo":"Péssima escolha",
+                "descricao":"Esse golpe não é capaz de matar o EIKOLAS, você perdeu 10 ponto",
+                "opcoes":{
+                        "recepcao": "Voltar à recepção",
+                        "andar das portas": "Ir ao andar desconhecido por todos"
+            }
+        },
+        "murro no olho":{
+                "titulo":"acertou em cheio",
+                "descrição": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganho 10 pontos!!",
+                "opcoes":{
+                        "recepcao": "Voltar à recepção",
+                        "andar das portas": "Ir ao andar desconhecido por todos"
+            }
         }
+                
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
 
 def main():
+    
     print("Na hora do sufoco!")
     print("------------------")
     print()
@@ -136,18 +162,37 @@ def main():
         "na entrada do Insper, e quer procurar o professor para pedir um "
         "adiamento do EP (boa sorte...)")
     print()
+    
 
     cenarios, nome_cenario_atual = carregar_cenarios()
 
     game_over = False
     while not game_over:
+        p=0
         cenario_atual = cenarios[nome_cenario_atual]
+        
+        if cenario_atual=="bicuda no pote":
+            p=p+8
+        
+        if cenario_atual=="tele":
+            p=p+5
+        
+        if cenario_atual=="porta 2":
+            p=p+8
+            
+        if cenario_atual=="chute na barriga":
+            p=p-10
+        
+        if cenario_atual=="murro no olho":
+            p=p+10
+
+        
 
         print(cenario_atual["titulo"])
         print('-'*len(cenario_atual["titulo"]))
         print(cenario_atual["descricao"])
+        print(p)  
         
-                      
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
@@ -165,7 +210,7 @@ def main():
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
-
+    
     print("Você morreu! :(")
 
 
