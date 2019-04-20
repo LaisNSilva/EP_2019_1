@@ -55,7 +55,7 @@ def carregar_cenarios():
                 "titulo": "Você acertou em cheio!",
                 "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS!",
                 "opcoes":{
-                        "inicio": "Voltar para o saguão de entrada"
+                        "recepcao": "Voltar para o saguão de entrada"
             }
         },
         "fab lab":{
@@ -88,33 +88,32 @@ def carregar_cenarios():
                 "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será)",
                 "opcoes":{
                     "andar professor": "Ir enfrentar o professor. A hora de entregar o EP está chegando!",
-                    "biblioteca": "Ir à biblioteca",
                     "andar das portas": "Ir ao andar desconhecido por todos"
             }
         },
         "andar das portas":{
-                "titulo":"andar de escolhas",
-                "descricao":"você deve escolher uma das portas",
+                "titulo": "Andar de escolhas!!!!!",
+                "descricao":"Você deve escolher uma das portas",
                 "opcoes":{
-                        "porta 1":"Desejo ir a esta porta a qual não possuo conhecimento sobre o que tem",
-                        "porta 2":"Desejo ir a esta outra porta que também não tenho a mínima ideia"} 
+                        "porta 1": "Desejo ir a esta porta a qual não possuo conhecimento sobre o que tem",
+                        "porta 2": "Desejo ir a esta outra porta que também não tenho a mínima ideia"} 
         },
         "porta 1":{
-                "titulo":"A PORTA DO MAL!!!!",
-                "descricao":"Você não tem muita sorte, deu de cara com o monstro EIKOLAS!!!!!!. Você pode entrar em combate com o monstro ou se teletransportar",
+                "titulo": "A PORTA DO MAL!!!!",
+                "descricao": "Você não tem muita sorte, deu de cara com o monstro EIKOLAS!!!!!!. Você pode entrar em combate com o monstro ou se teletransportar",
                 "opcoes":{
-                        "combate1":"enfrentar o monstro para tentar ganhar pontos",
-                        "teletransporte":" você pode fugir do monstro"
+                        "combate1": "Enfrentar o monstro para tentar ganhar pontos",
+                        "teletransporte": "Vou fugir desse monstro :O"
             }
         },
         "teletransporte":{
                 "titulo": "SE DEU MAL!!",
                 "descricao": "Você foi teletransportado para o mundo do nada :(",
-                "opcoes":{}            
+                "opcoes": {}            
         },
         "porta 2":{
                 "titulo": "VOCÊ É UM SORTUDO",
-                "descricao": "você foi feliz em sua escolha, ganhou 8 pontos",
+                "descricao": "Foi feliz em sua escolha, ganhou 8 pontos",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
                         "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",
@@ -129,22 +128,29 @@ def carregar_cenarios():
             }
         },
         "chute na barriga":{
-                "titulo":"Péssima escolha",
-                "descricao":"Esse golpe não é capaz de matar o EIKOLAS, você perdeu 10 ponto",
+                "titulo": "Péssima escolha :(",
+                "descricao": "Esse golpe não é capaz de matar o EIKOLAS, você perdeu 10 pontos",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
                         "andar das portas": "Ir ao andar desconhecido por todos"
             }
         },
         "murro no olho":{
-                "titulo":"acertou em cheio",
-                "descrição": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganho 10 pontos!!",
+                "titulo":"ACERTOU EM CHEIO!",
+                "descrição": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganhou 10 pontos!!",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
                         "andar das portas": "Ir ao andar desconhecido por todos"
             }
+        },
+        "return":{
+                "titulo": "De volta ao saguão do perigo",
+                "descricao": "Você esta no saguão de entrada do Insper",
+                "opcoes":{
+                    "andar professor": "Tomar o elevador para o andar do professor",
+                    "teletransporte": "Quero me teletransportar para o mundo do nada"
+            }
         }
-                
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -162,51 +168,51 @@ def main():
         "na entrada do Insper, e quer procurar o professor para pedir um "
         "adiamento do EP (boa sorte...)")
     print()
-    
+    p = 0
 
     cenarios, nome_cenario_atual = carregar_cenarios()
 
     game_over = False
     while not game_over:
-        p=0
-        cenario_atual = cenarios[nome_cenario_atual]
-        
-        if cenario_atual=="bicuda no pote":
-            p=p+8
-        
-        if cenario_atual=="tele":
-            p=p+5
-        
-        if cenario_atual=="porta 2":
-            p=p+8
-            
-        if cenario_atual=="chute na barriga":
-            p=p-10
-        
-        if cenario_atual=="murro no olho":
-            p=p+10
-
-        
+        cenario_atual = cenarios[nome_cenario_atual]      
 
         print(cenario_atual["titulo"])
         print('-'*len(cenario_atual["titulo"]))
-        print(cenario_atual["descricao"])
-        print(p)  
+        print(cenario_atual["descricao"])          
         
         opcoes = cenario_atual['opcoes']
+        
+        
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
+            print(f"Pontos = {p}") 
             print("Escolha sua opção: ")
             print()
             for ação, descrição in opcoes.items():
                 print(f'{ação}: {descrição}')
+                         
             escolha = input("O que você quer fazer? ")
-
+            
             
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+                if escolha == "bicuda no pote":
+                    p += 8
+                    
+                if escolha == "tele":
+                    p += 5
+                
+                if escolha == "porta 2":
+                    p += 8
+                    
+                if escolha == "chute na barriga":
+                    p -= 10
+                
+                if escolha == "murro no olho":
+                    p += 10  
+                
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
