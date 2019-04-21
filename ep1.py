@@ -30,7 +30,8 @@ def carregar_cenarios():
                 "opcoes":{
                         "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
                         "machado":"Agressividade para ameaçar por 10 moedas",
-                        "comida":"professores de barriga vazia são muito mais crueis, tente deixá-lo feliz por 16 moedas"
+                        "comida":"professores de barriga vazia são muito mais crueis, tente deixá-lo feliz por 16 moedas",
+                        "andar professor":"Caaso não tenho moedas volte ao andar no professor"
              }
         },
         "fotos de animais fofinhos":{
@@ -84,7 +85,7 @@ def carregar_cenarios():
         },
         "bicuda no pote":{
                 "titulo": "Você acertou em cheio!",
-                "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS!",
+                "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS E 5 MOEDAS",
                 "opcoes":{
                         "recepcao": "Voltar para o saguão de entrada"
             }
@@ -99,7 +100,7 @@ def carregar_cenarios():
         },
         "tele":{
               "titulo": "VOCÊ É MUITO SORTUDO!!!!",
-              "descricao": "Você ganhou 5 pontos. Isso vai garantir que você tenha melhor possibilidade de conseguir o seu objetivo",
+              "descricao": "Você ganhou 5 pontos E 6 moedas. Isso vai garantir que você tenha melhor possibilidade de conseguir o seu objetivo",
               "opcoes":{
                       "recepcao": "Voltar ao início",
                       "andar professor": "Ser corajoso e já ir enfrentar o professor",
@@ -144,7 +145,7 @@ def carregar_cenarios():
         },
         "porta 2":{
                 "titulo": "VOCÊ É UM SORTUDO",
-                "descricao": "Foi feliz em sua escolha, ganhou 8 pontos",
+                "descricao": "Foi feliz em sua escolha, ganhou 8 pontos e 3 moedas",
                 "opcoes":{
                         "return": "Voltar à recepção",
                         "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",
@@ -160,7 +161,7 @@ def carregar_cenarios():
         },
         "chute na barriga":{
                 "titulo": "Péssima escolha :(",
-                "descricao": "Esse golpe não é capaz de matar o EIKOLAS, você perdeu 10 pontos",
+                "descricao": "Esse golpe não é capaz de matar o EIKOLAS, você perdeu 10 pontos ",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
                         "andar das portas": "Ir ao andar desconhecido por todos"
@@ -168,7 +169,7 @@ def carregar_cenarios():
         },
         "murro no olho":{
                 "titulo":"ACERTOU EM CHEIO!",
-                "descrição": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganhou 10 pontos!!",
+                "descrição": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganhou 10 pontos e 5 moedas!!",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
                         "andar das portas": "Ir ao andar desconhecido por todos"
@@ -183,7 +184,7 @@ def carregar_cenarios():
             }
         },
         "professor2":{
-                    "titulo": "VOCÊ VENCEU!!!! (mesmo?)",
+                    "titulo": "VOCÊ VENCEU!!!! (mesmo? Acho que não...)",
                     "descricao": "Você possui mais de 16 pontos e, por conta disso, o professor adiou o EP para você!!",
                     "opcoes": {
                             "fim": "Consegui meu objetivo, estou livre agora e não quero fazer mais nada :D",
@@ -196,10 +197,37 @@ def carregar_cenarios():
                 "opcoes": {}
         },
         "lutar":{
-                "titulo": " HAHAHAHAHA ",
+                "titulo": " é hora de usar a rama que você comprou ",
                 "descricao": "Agora só porque adiou o EP, acha que vai conseguir mais coisa do Raul? Achou errado, infelizmente",
-                "opcoes": {}
-        }
+                "opcoes": {
+                        "usar fotos de animais fofinhos":"teste a sensibilidade do professor",
+                        "usar machado":" teste  a coragem desse monstro",
+                        "usar comida":"teste sua fome"
+                }
+        },
+        "usar fotos de animais fofinhos":{
+                "titulo": "arma arriscada",
+                "descricao":"o professor ignorou os fafuras, ele é uma criatura cruel",
+                "opcoes":{
+                        "terminar": "fim do jogo"
+                }
+        },
+        "terminar":{
+                "titulo":" HAHAHAHAHA ",
+                "descricao":"Agora só porque adiou o EP, achou que ele iria amolecer com fotos fofas, achou errado",
+                "opcoes":{}
+        },
+        "usar machado":{
+                "titulo":"péssima escolha",
+                "descricao":"o monstro ficou infurecido, e demorou sua alma",
+                "opcoes":{}
+        },
+        "usar comida":{
+                "titulo":"boa escolha",
+                "descrição":"O monstro adorou esse mimo, e adiou o Ep sem perdas de pontos",
+                "opcoes":{0}
+                }
+        
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -218,7 +246,8 @@ def main():
         "adiamento do EP (boa sorte...)")
     print()
     pontos = 0
-
+    moedas = 0
+    arma = ""
     cenarios, nome_cenario_atual = carregar_cenarios()
 
     game_over = False
@@ -237,6 +266,8 @@ def main():
             game_over = True
         else:
             print(f"Pontos = {pontos}") 
+            print(f"Moedas = {moedas}")
+            print(f"Arma = {arma}")
             print("Escolha sua opção: ")
             print()
             for ação, descrição in opcoes.items():
@@ -249,23 +280,60 @@ def main():
                 nome_cenario_atual = escolha
                 if nome_cenario_atual == "bicuda no pote":
                     pontos += 8
+                    moedas+=5
                     
                 if nome_cenario_atual == "tele":
-                    pontos += 5
+                    pontos += 6
+                    moedas+=3
                 
                 if nome_cenario_atual == "porta 2":
-                    pontos += 8
+                    pontos += 5
+                    moedas+=3
                     
                 if nome_cenario_atual == "chute na barriga":
                     pontos -= 10
                 
                 if nome_cenario_atual == "murro no olho":
                     pontos += 10 
+                    moedas+=5
                     
                 if nome_cenario_atual == "professor":
                     if pontos > 16:
                         nome_cenario_atual = "professor2"                        
                 
+                if nome_cenario_atual == "sala secreta":
+                    if moedas>=5 and moedas<10:
+                        nome_cenario_atual = "fotos de animais fofinhos"
+                        moedas-=5
+                        arma=="fotos de animais fofinhos"
+                        print("você tem com arma fotos de animais fofinhos")
+                    
+                    elif moedas>=10 and moedas<16:
+                        nome_cenario_atual = "machado"
+                        moedas-=10
+                        arma=="machado"
+                        print("você tem como arma um machado")
+                    
+                    elif moedas>=16:
+                        nome_cenario_atual = "comida"
+                        moedas-=16
+                        arma=="comida"
+                        print("você tem como arma comida")
+                    else:
+                        nome_cenario_atual = "andar do professor"
+                        print("você não tem armas")
+                        
+                if nome_cenario_atual == "luta":
+                    if arma=="fotos de animais fofinhos":
+                        nome_cenario_atual = "usar fotos de animais fofinhos"
+                    if arma=="machado":
+                        nome_cenario_atual = "usar machado"
+                    if arma=="comida":
+                        nome_cenario_atual = "usar comida"
+                        
+                        
+                        
+                        
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
