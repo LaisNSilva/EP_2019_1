@@ -56,19 +56,17 @@ def carregar_cenarios():
         "professor": {
                 "titulo": "O monstro do Python",
                 "descricao": "Você foi pedir para o professor adiar o EP. "
-                             "O professor revelou que é um monstro disfarçado "
-                             "Se você tem mais de 16 pontos pode tentar ir para o combate mais dificil do jogo "
-                             "Caso tenha menos que 16 ponto, não pode fazer e o monstro devotou sua alma",
-                "opcoes1": {},
-                "opcoes2":{
-            }
+                             "O professor revelou que é um monstro disfarçado. "
+                             "Se você tem mais de 16 pontos, pode tentar ir para o combate mais difícil do jogo. "
+                             "Caso tenha menos que 16 pontos, não pode fazer e o monstro devotou sua alma",
+                "opcoes": {}
         },
         "biblioteca": {
                 "titulo": "Caverna da tranquilidade",
                 "descricao": "Você está na biblioteca, há um monstro que taca livros nas pessoas",
                 "opcoes": {
-                    "recepcao": "Voltar para o saguão de entrada",
-                    "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
+                        "recepcao": "Voltar para o saguão de entrada",
+                        "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
             }
         },
         "combate":{
@@ -118,7 +116,7 @@ def carregar_cenarios():
         },
         "fablab":{
                 "titulo": "Achou que ia ganhar pontos de novo, né?",
-                "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será)",
+                "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será?)",
                 "opcoes":{
                     "andar professor": "Ir enfrentar o professor. A hora de entregar o EP está chegando!",
                     "andar das portas": "Ir ao andar desconhecido por todos"
@@ -148,7 +146,7 @@ def carregar_cenarios():
                 "titulo": "VOCÊ É UM SORTUDO",
                 "descricao": "Foi feliz em sua escolha, ganhou 8 pontos",
                 "opcoes":{
-                        "recepcao": "Voltar à recepção",
+                        "return": "Voltar à recepção",
                         "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",
             }
         },
@@ -183,6 +181,24 @@ def carregar_cenarios():
                     "andar professor": "Tomar o elevador para o andar do professor",
                     "teletransporte": "Quero me teletransportar para o mundo do nada"
             }
+        },
+        "professor2":{
+                    "titulo": "VOCÊ VENCEU!!!! (mesmo?)",
+                    "descricao": "Você possui mais de 16 pontos e, por conta disso, o professor adiou o EP para você!!",
+                    "opcoes": {
+                            "fim": "Consegui meu objetivo, estou livre agora e não quero fazer mais nada :D",
+                            "lutar": "Não me contento com isso, quero conseguir mais coisas com o professor"
+            }
+        },
+        "fim":{
+                "titulo": "Você venceu uma luta e decidiu acabar assim? TEMOS QUE MUDAR ESSA ATITUDE! AS LUTAS NÃO ACABAM NUNCA",
+                "descricao": "Venceu o RAULZÃO e conseguiu adiar o EP (mas não soube que é para amanhã, e valendo menos pontos hahahaha)",
+                "opcoes": {}
+        },
+        "lutar":{
+                "titulo": " HAHAHAHAHA ",
+                "descricao": "Agora só porque adiou o EP, acha que vai conseguir mais coisa do Raul? Achou errado, infelizmente",
+                "opcoes": {}
         }
     }
     nome_cenario_atual = "inicio"
@@ -216,7 +232,7 @@ def main():
         opcoes = cenario_atual['opcoes']
         
         
-        if len(opcoes) == 0:
+        if len(opcoes) == 0: 
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
@@ -231,26 +247,30 @@ def main():
             
             if escolha in opcoes:
                 nome_cenario_atual = escolha
-                if escolha == "bicuda no pote":
+                if nome_cenario_atual == "bicuda no pote":
                     pontos += 8
                     
-                if escolha == "tele":
+                if nome_cenario_atual == "tele":
                     pontos += 5
                 
-                if escolha == "porta 2":
+                if nome_cenario_atual == "porta 2":
                     pontos += 8
                     
-                if escolha == "chute na barriga":
+                if nome_cenario_atual == "chute na barriga":
                     pontos -= 10
                 
-                if escolha == "murro no olho":
-                    pontos += 10  
+                if nome_cenario_atual == "murro no olho":
+                    pontos += 10 
+                    
+                if nome_cenario_atual == "professor":
+                    if pontos > 16:
+                        nome_cenario_atual = "professor2"                        
                 
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
     
-    print("Você morreu! :(")
+    print("Você morreu!")
 
 
 # Programa principal.
