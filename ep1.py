@@ -20,15 +20,48 @@ def carregar_cenarios():
                 "descricao": "Você chegou ao andar da sala do seu professor",
                 "opcoes": {
                     "recepcao": "Tomar o elevador para o saguão de entrada",
+                    "sala secreta":"Arriscar entrar em mais uma sala",
                     "professor": "Falar com o professor"
+            }
+        },
+        "sala secreta": {
+                "titulo": "preparando para o combate",
+                "descricao": "Aqui você pode comprar ferramentas para te auxiliar no combate final",
+                "opcoes":{
+                        "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
+                        "machado":"Agressividade para ameaçar por 10 moedas",
+                        "comida":"professores de barriga vazia são muito mais crueis, tente deixá-lo feliz por 16 moedas"
+             }
+        },
+        "fotos de animais fofinhos":{
+                "titulo":"boa escolha",
+                "descricao":"Agora vá descobir se o professor gosta de animais fofinhos",
+                "opcoes":{
+                        "andar professor":"o combate se aproxima"
+            }
+        },
+        "machado":{
+                "titulo":"escolha agressiva",
+                "descrição":"descubra se causará medo no professor",
+                "opcoes":{
+                        "andar professor":"o combate se aproxima"
+            }
+        },
+        "comida":{
+                "titulo":"que delicia de escolha",
+                "descricao":"encha o bucho do professor e veja qual será a reação",
+                "opcoes":{"andar professor":"o combate se aproxima"
             }
         },
         "professor": {
                 "titulo": "O monstro do Python",
                 "descricao": "Você foi pedir para o professor adiar o EP. "
                              "O professor revelou que é um monstro disfarçado "
-                             "e devorou sua alma.",
-                "opcoes": {}
+                             "Se você tem mais de 16 pontos pode tentar ir para o combate mais dificil do jogo "
+                             "Caso tenha menos que 16 ponto, não pode fazer e o monstro devotou sua alma",
+                "opcoes1": {}
+                "opcoes2":{
+                        }
         },
         "biblioteca": {
                 "titulo": "Caverna da tranquilidade",
