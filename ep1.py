@@ -19,13 +19,13 @@ def carregar_cenarios():
                 "titulo": "Andar do desespero",
                 "descricao": "Você chegou ao andar da sala do seu professor",
                 "opcoes": {
-                    "recepcao": "Tomar o elevador para o saguão de entrada",
+                    "return": "Tomar o elevador para o saguão de entrada",
                     "sala secreta":"Arriscar entrar em mais uma sala",
                     "professor": "Falar com o professor"
             }
         },
         "sala secreta": {
-                "titulo": "preparando para o combate",
+                "titulo": "Preparando para o combate",
                 "descricao": "Aqui você pode comprar ferramentas para te auxiliar no combate final",
                 "opcoes":{
                         "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
@@ -35,15 +35,15 @@ def carregar_cenarios():
              }
         },
         "fotos de animais fofinhos":{
-                "titulo":"boa escolha",
-                "descricao":"Agora vá descobir se o professor gosta de animais fofinhos",
+                "titulo":"Você ganhou fotos de animais fofinhos!",
+                "descricao":"Pela suas moedas, você ganhou este presentão. Agora, vá descobir se o professor gosta de animais fofinhos",
                 "opcoes":{
                         "andar professor":"o combate se aproxima"
             }
         },
         "machado":{
                 "titulo":"escolha agressiva",
-                "descrição":"descubra se causará medo no professor",
+                "descricao":"descubra se causará medo no professor",
                 "opcoes":{
                         "andar professor":"o combate se aproxima"
             }
@@ -145,7 +145,7 @@ def carregar_cenarios():
         },
         "porta 2":{
                 "titulo": "VOCÊ É UM SORTUDO",
-                "descricao": "Foi feliz em sua escolha, ganhou 8 pontos e 3 moedas",
+                "descricao": "Foi feliz em sua escolha, ganhou 5 pontos e 3 moedas",
                 "opcoes":{
                         "return": "Voltar à recepção",
                         "andar professor": "Ir ao andar do professor para enfrentá-lo (ou não)!",
@@ -169,7 +169,7 @@ def carregar_cenarios():
         },
         "murro no olho":{
                 "titulo":"ACERTOU EM CHEIO!",
-                "descrição": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganhou 10 pontos e 5 moedas!!",
+                "descricao": "O murro foi capaz de atingir o celebro do monstro e matá-lo na mesma hora, você ganhou 10 pontos e 5 moedas!!",
                 "opcoes":{
                         "recepcao": "Voltar à recepção",
                         "andar das portas": "Ir ao andar desconhecido por todos"
@@ -224,10 +224,9 @@ def carregar_cenarios():
         },
         "usar comida":{
                 "titulo":"boa escolha",
-                "descrição":"O monstro adorou esse mimo, e adiou o Ep sem perdas de pontos",
-                "opcoes":{0}
-                }
-        
+                "descricao":"O monstro adorou esse mimo, e adiou o Ep sem perdas de pontos",
+                "opcoes":{}
+        }
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -295,40 +294,40 @@ def main():
                 
                 if nome_cenario_atual == "murro no olho":
                     pontos += 10 
-                    moedas+=5
+                    moedas += 5
                     
                 if nome_cenario_atual == "professor":
                     if pontos > 16:
                         nome_cenario_atual = "professor2"                        
                 
                 if nome_cenario_atual == "sala secreta":
-                    if moedas>=5 and moedas<10:
+                    if moedas >= 5 and moedas < 10:
                         nome_cenario_atual = "fotos de animais fofinhos"
-                        moedas-=5
-                        arma=="fotos de animais fofinhos"
-                        print("você tem com arma fotos de animais fofinhos")
+                        moedas -= 5
+                        arma += "Fotos de animais fofinhos"
+                        print("Você tem uma arma: Fotos de animais fofinhos")
                     
-                    elif moedas>=10 and moedas<16:
+                    elif moedas >= 10 and moedas < 16:
                         nome_cenario_atual = "machado"
-                        moedas-=10
-                        arma=="machado"
-                        print("você tem como arma um machado")
+                        moedas -= 10
+                        arma += "machado"
+                        print("Você tem como arma: machado")
                     
-                    elif moedas>=16:
+                    elif moedas >= 16:
                         nome_cenario_atual = "comida"
-                        moedas-=16
-                        arma=="comida"
-                        print("você tem como arma comida")
+                        moedas -= 16
+                        arma += "comida"
+                        print("Você tem como arma: comida")
                     else:
-                        nome_cenario_atual = "andar do professor"
-                        print("você não tem armas")
+                        nome_cenario_atual = "andar professor"
+                        print("Você não tem armas")
                         
                 if nome_cenario_atual == "luta":
-                    if arma=="fotos de animais fofinhos":
+                    if arma == "fotos de animais fofinhos":
                         nome_cenario_atual = "usar fotos de animais fofinhos"
-                    if arma=="machado":
+                    if arma == "machado":
                         nome_cenario_atual = "usar machado"
-                    if arma=="comida":
+                    if arma == "comida":
                         nome_cenario_atual = "usar comida"
                         
                         
