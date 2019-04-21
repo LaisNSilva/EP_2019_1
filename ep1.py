@@ -59,9 +59,9 @@ def carregar_cenarios():
                              "O professor revelou que é um monstro disfarçado "
                              "Se você tem mais de 16 pontos pode tentar ir para o combate mais dificil do jogo "
                              "Caso tenha menos que 16 ponto, não pode fazer e o monstro devotou sua alma",
-                "opcoes1": {}
+                "opcoes1": {},
                 "opcoes2":{
-                        }
+            }
         },
         "biblioteca": {
                 "titulo": "Caverna da tranquilidade",
@@ -201,7 +201,7 @@ def main():
         "na entrada do Insper, e quer procurar o professor para pedir um "
         "adiamento do EP (boa sorte...)")
     print()
-    p = 0
+    pontos = 0
 
     cenarios, nome_cenario_atual = carregar_cenarios()
 
@@ -220,7 +220,7 @@ def main():
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
-            print(f"Pontos = {p}") 
+            print(f"Pontos = {pontos}") 
             print("Escolha sua opção: ")
             print()
             for ação, descrição in opcoes.items():
@@ -232,19 +232,19 @@ def main():
             if escolha in opcoes:
                 nome_cenario_atual = escolha
                 if escolha == "bicuda no pote":
-                    p += 8
+                    pontos += 8
                     
                 if escolha == "tele":
-                    p += 5
+                    pontos += 5
                 
                 if escolha == "porta 2":
-                    p += 8
+                    pontos += 8
                     
                 if escolha == "chute na barriga":
-                    p -= 10
+                    pontos -= 10
                 
                 if escolha == "murro no olho":
-                    p += 10  
+                    pontos += 10  
                 
             else:
                 print("Sua indecisão foi sua ruína!")
