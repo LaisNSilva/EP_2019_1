@@ -1,8 +1,8 @@
 # EP 2019-1: Escape Insper
-#
+
 # Alunos: 
-# - aluno A: Lais Nascimento da Silva, laisns@al.insper.edu.br
-# - aluno B: William Augusto Reis da Silva, william.silva.ismart@gmail.com
+# - Aluno A: Lais Nascimento da Silva, laisns@al.insper.edu.br
+# - Aluno B: William Augusto Reis da Silva, william.silva.ismart@gmail.com
 
 def carregar_cenarios():
     cenarios = {
@@ -54,9 +54,9 @@ def carregar_cenarios():
                 "titulo":"compre uma arma",
                 "descricao":"você deve escolher uma das opções",
                 "opcoes":{
-                        "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
+                        "fotos de animais fofinhos": "Tente amolecer o coração do professor por 5 moedas",
                         "machado":"Agressividade para ameaçar por 10 moedas",
-                        "comida":"professores de barriga vazia são muito mais crueis, tente deixá-lo feliz por 16 moedas",
+                        "comida": "Professores de barriga vazia são muito mais crueis, tente deixá-lo feliz por 16 moedas",
                         "andar professor":"Caso não tenho moedas volte ao andar no professor"
               }
         },
@@ -114,7 +114,7 @@ def carregar_cenarios():
                 "titulo": "Você acertou em cheio!",
                 "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS E 5 MOEDAS",
                 "opcoes":{
-                        "inicio": "Voltar para o saguão de entrada"
+                        "recepcao": "Voltar para o saguão de entrada"
             }
         },
         "fab lab":{
@@ -144,8 +144,8 @@ def carregar_cenarios():
             }
         },
         "fablab":{
-                "titulo": "Achou que ia ganhar pontos de novo, né?",
-                "descricao": "Você está de novo no FABLAB, porém não vai conseguir pontos, hehe! (será?)",
+                "titulo": "O maior laboratório DESSE PAÍS",
+                "descricao": "Você está no FABLAB, porém não vai conseguir pontos, hehe! (será?)",
                 "opcoes":{
                     "andar professor": "Ir enfrentar o professor. A hora de entregar o EP está chegando!",
                     "andar das portas": "Ir ao andar desconhecido por todos"
@@ -228,9 +228,9 @@ def carregar_cenarios():
                 "titulo": " é hora de usar a rama que você comprou ",
                 "descricao": "Agora só porque adiou o EP, acha que vai conseguir mais coisa do Raul? Achou errado, infelizmente",
                 "opcoes": {
-                        "usar fotos de animais fofinhos":"teste a sensibilidade do professor",
-                        "usar machado":" teste  a coragem desse monstro",
-                        "usar comida":"teste sua fome"
+                        "usar fotos de animais fofinhos": "teste a sensibilidade do professor",
+                        "usar machado": "teste  a coragem desse monstro",
+                        "usar comida": "teste sua fome"
                 }
         },
         "usar fotos de animais fofinhos":{
@@ -247,12 +247,12 @@ def carregar_cenarios():
         },
         "usar machado":{
                 "titulo":"péssima escolha",
-                "descricao":"o monstro ficou infurecido, e demorou sua alma",
+                "descricao":"O monstro ficou infurecido, e demorou sua alma",
                 "opcoes":{}
         },
         "usar comida":{
-                "titulo":"boa escolha",
-                "descricao":"O monstro adorou esse mimo, e adiou o Ep sem perdas de pontos",
+                "titulo":"BOA ESCOLHA",
+                "descricao":"Com comida até eu, né?! O monstro adorou esse mimo, e fez o professor adiar o EP sem perdas de pontos",
                 "opcoes":{}
         }
     }
@@ -302,20 +302,53 @@ def main():
                          
             escolha = input("O que você quer fazer? ")
             
+            if nome_cenario_atual == "pobre":
+                moedas -= 5
+                arma += "fotos de animais fofinhos"
+                print("Você só pode ter uma arma: Fotos de animais fofinhos")  
+        
+            elif nome_cenario_atual == "médio":
+                if escolha == "fotos de animais fofinhos":
+                    moedas -= 5
+                    arma += "fotos de animais fofinhos"
+                    print("Você tem uma arma: Fotos de animais fofinhos")
+                    
+                elif escolha == "machado":
+                    moedas -= 10
+                    arma = "machado"
+                    print("Você tem como arma: machado")     
+            
+            elif nome_cenario_atual == "rico":
+                    if escolha == "fotos de animais fofinhos":
+                         moedas -= 5
+                         arma += "fotos de animais fofinhos"
+                         print("Você tem uma arma: Fotos de animais fofinhos")  
+                    elif escolha == "machado":
+                         moedas -= 10
+                         arma += "machado"
+                         print("Você tem como arma: machado")     
+                    elif escolha == "comida":
+                         moedas -= 16
+                         arma += "comida"
+                         print("Você tem como arma: comida")     
+                    else:
+                        nome_cenario_atual = "andar professor"
+                        print("Você não tem armas")
+                
             
             if escolha in opcoes:
                 nome_cenario_atual = escolha
                 if nome_cenario_atual == "bicuda no pote":
                     pontos += 8
-                    moedas+=5
+                    moedas += 5
                     
                 if nome_cenario_atual == "tele":
                     pontos += 6
-                    moedas+=3
+                    moedas += 3
                 
                 if nome_cenario_atual == "porta 2":
                     pontos += 5
-                    moedas+=3
+                    moedas += 3
                     
                 if nome_cenario_atual == "chute na barriga":
                     pontos -= 10
@@ -324,6 +357,7 @@ def main():
                     pontos += 10 
                     moedas += 5
                     
+ 
                 if nome_cenario_atual == "professor":
                     if pontos > 16:
                         nome_cenario_atual = "professor2"                        
@@ -331,48 +365,12 @@ def main():
                 if nome_cenario_atual == "sala secreta":
                     if moedas >= 5 and moedas < 10:
                         nome_cenario_atual = "pobre"
-                       
-                    
+                        
                     elif moedas >= 10 and moedas < 16:
                         nome_cenario_atual = "médio"
-                        
-                    
+                            
                     elif moedas >= 16:
                         nome_cenario_atual = "rico"
-                        
-                    else:
-                        nome_cenario_atual = "andar professor"
-                        print("Você não tem armas")
-                if nome_cenario_atual == "pobre":
-                    if escolha == "fotos de animais fofinhos":
-                        moedas -= 5
-                        arma = "Fotos de animais fofinhos"
-                        print("Você tem uma arma: Fotos de animais fofinhos")
-                if nome_cenario_atual == "médio":
-                    if escolha == "fotos de animais fofinhos":
-                        moedas -= 5
-                        arma = "Fotos de animais fofinhos"
-                        print("Você tem uma arma: Fotos de animais fofinhos")
-                        
-                    elif escolha == "machado":
-                        moedas -= 10
-                        arma = "machado"
-                        print("Você tem como arma: machado")
-                if nome_cenario_atual == "rico":
-                    if escolha == "fotos de animais fofinhos":
-                         moedas -= 5
-                         arma = "Fotos de animais fofinhos"
-                         print("Você tem uma arma: Fotos de animais fofinhos")
-                        
-                    elif escolha == "machado":
-                         moedas -= 10
-                         arma = "machado"
-                         print("Você tem como arma: machado") 
-                        
-                    elif escolha == "comida":
-                         moedas -= 16
-                         arma = "comida"
-                         print("Você tem como arma: comida")
                          
                         
                 if nome_cenario_atual == "luta":
@@ -382,9 +380,7 @@ def main():
                         nome_cenario_atual = "usar machado"
                     if arma == "comida":
                         nome_cenario_atual = "usar comida"
-                        
-                        
-                        
+                                                
                         
             else:
                 print("Sua indecisão foi sua ruína!")
@@ -396,4 +392,3 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
-
