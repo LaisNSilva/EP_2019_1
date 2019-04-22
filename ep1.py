@@ -85,8 +85,8 @@ def carregar_cenarios():
                 "titulo": "O monstro do Python",
                 "descricao": "Você foi pedir para o professor adiar o EP. "
                              "O professor revelou que é um monstro disfarçado. "
-                             "Se você tem mais de 16 pontos, pode tentar ir para o combate mais difícil do jogo. "
-                             "Caso tenha menos que 16 pontos, não pode fazer e o monstro devotou sua alma",
+                             "Se você tem mais de 13 pontos, pode tentar ir para o combate mais difícil do jogo. "
+                             "Caso tenha menos que 13 pontos, não pode fazer e o monstro devotou sua alma",
                 "opcoes": {}
         },
         "biblioteca": {
@@ -213,7 +213,7 @@ def carregar_cenarios():
         },
         "professor2":{
                     "titulo": "VOCÊ VENCEU!!!! (mesmo? Acho que não...)",
-                    "descricao": "Você possui mais de 16 pontos e, por conta disso, o professor adiou o EP para você!!",
+                    "descricao": "Você possui mais de 13 pontos e, por conta disso, o professor adiou o EP para você!!",
                     "opcoes": {
                             "fim": "Consegui meu objetivo, estou livre agora e não quero fazer mais nada :D",
                             "lutar": "Não me contento com isso, quero conseguir mais coisas com o professor"
@@ -289,7 +289,10 @@ def main():
         
         
         if len(opcoes) == 0: 
-            print("Acabaram-se suas opções! Mwo mwo mwooooo...")
+            if cenario_atual == "usar comida":
+                print("Você conseguiu. O jogo acabou")
+            else:
+                print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
             print(f"Pontos = {pontos}") 
@@ -357,9 +360,9 @@ def main():
                     pontos += 10 
                     moedas += 5
                     
- 
+
                 if nome_cenario_atual == "professor":
-                    if pontos > 16:
+                    if pontos >= 13:
                         nome_cenario_atual = "professor2"                        
                 
                 if nome_cenario_atual == "sala secreta":
@@ -371,8 +374,7 @@ def main():
                             
                     elif moedas >= 16:
                         nome_cenario_atual = "rico"
-                         
-                        
+                                                
                 if nome_cenario_atual == "luta":
                     if arma == "fotos de animais fofinhos":
                         nome_cenario_atual = "usar fotos de animais fofinhos"
@@ -380,13 +382,12 @@ def main():
                         nome_cenario_atual = "usar machado"
                     if arma == "comida":
                         nome_cenario_atual = "usar comida"
-                                                
-                        
+
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
     
-    print("Você morreu!")
+    print("Fim de jogo!")
 
 
 # Programa principal.
