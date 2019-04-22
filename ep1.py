@@ -28,12 +28,39 @@ def carregar_cenarios():
                 "titulo": "Preparando para o combate",
                 "descricao": "Aqui você pode comprar ferramentas para te auxiliar no combate final",
                 "opcoes":{
+                        "pobre":"veja o que você pode comprar com 5 moedas",
+                        "médio":"veja o que você pode comprar com mais de 10 moedas",
+                        "rico":"veja o que você pode comprar com mais de 16 moedas"
+            }
+        },
+        "pobre":{
+                "titulo":"compre uma arma",
+                "descricao":"você deve escolher uma das opções",
+                "opcoes":{
+                        "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
+                        "andar professor":"Caso não tenho moedas volte ao andar no professor"
+             }
+        },
+        "médio":{
+                "titulo":"compre uma arma",
+                "descricao":"você deve escolher uma das opções",
+                "opcoes":{
+                        "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
+                        "machado":"Agressividade para ameaçar por 10 moedas",
+                        "andar professor":"Caso não tenho moedas volte ao andar no professor"
+              }
+        },
+        "rico":{
+                "titulo":"compre uma arma",
+                "descricao":"você deve escolher uma das opções",
+                "opcoes":{
                         "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
                         "machado":"Agressividade para ameaçar por 10 moedas",
                         "comida":"professores de barriga vazia são muito mais crueis, tente deixá-lo feliz por 16 moedas",
-                        "andar professor":"Caaso não tenho moedas volte ao andar no professor"
-             }
+                        "andar professor":"Caso não tenho moedas volte ao andar no professor"
+              }
         },
+                
         "fotos de animais fofinhos":{
                 "titulo":"Você ganhou fotos de animais fofinhos!",
                 "descricao":"Pela suas moedas, você ganhou este presentão. Agora, vá descobir se o professor gosta de animais fofinhos",
@@ -66,7 +93,7 @@ def carregar_cenarios():
                 "titulo": "Caverna da tranquilidade",
                 "descricao": "Você está na biblioteca, há um monstro que taca livros nas pessoas",
                 "opcoes": {
-                        "recepcao": "Voltar para o saguão de entrada",
+                        "inicio": "Voltar para o saguão de entrada",
                         "combate":"Enfrentar o monstro para ganhar força para enfrentar o professor"
             }
         },
@@ -87,7 +114,7 @@ def carregar_cenarios():
                 "titulo": "Você acertou em cheio!",
                 "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS E 5 MOEDAS",
                 "opcoes":{
-                        "recepcao": "Voltar para o saguão de entrada"
+                        "inicio": "Voltar para o saguão de entrada"
             }
         },
         "fab lab":{
@@ -95,7 +122,8 @@ def carregar_cenarios():
                 "descricao": "Você está no FABLAB!",
                 "opcoes":{
                         "tele": "Você irá se teletransportar para algum local. E aí, vai arriscar?!",
-                        "recepcao": "Sou covarde, hehe. Quero voltar ao início"                        
+                        "recepcao": "Sou covarde, hehe. Quero voltar ao início",
+                        "andar das portas": "Ir ao andar desconhecido por todos"                        
             }
         },
         "tele":{
@@ -104,7 +132,7 @@ def carregar_cenarios():
               "opcoes":{
                       "recepcao": "Voltar ao início",
                       "andar professor": "Ser corajoso e já ir enfrentar o professor",
-                      "biblioteca": "Ir à biblioteca, sou uma pessoa estudiosa :D"
+                      "andar das portas": "Ir ao andar desconhecido por todos"
             }
         },
         "recepcao": {
@@ -302,25 +330,50 @@ def main():
                 
                 if nome_cenario_atual == "sala secreta":
                     if moedas >= 5 and moedas < 10:
-                        nome_cenario_atual = "fotos de animais fofinhos"
-                        moedas -= 5
-                        arma += "Fotos de animais fofinhos"
-                        print("Você tem uma arma: Fotos de animais fofinhos")
+                        nome_cenario_atual = "pobre"
+                       
                     
                     elif moedas >= 10 and moedas < 16:
-                        nome_cenario_atual = "machado"
-                        moedas -= 10
-                        arma += "machado"
-                        print("Você tem como arma: machado")
+                        nome_cenario_atual = "médio"
+                        
                     
                     elif moedas >= 16:
-                        nome_cenario_atual = "comida"
-                        moedas -= 16
-                        arma += "comida"
-                        print("Você tem como arma: comida")
+                        nome_cenario_atual = "rico"
+                        
                     else:
                         nome_cenario_atual = "andar professor"
                         print("Você não tem armas")
+                if nome_cenario_atual == "pobre":
+                    if escolha == "fotos de animais fofinhos":
+                        moedas -= 5
+                        arma = "Fotos de animais fofinhos"
+                        print("Você tem uma arma: Fotos de animais fofinhos")
+                if nome_cenario_atual == "médio":
+                    if escolha == "fotos de animais fofinhos":
+                        moedas -= 5
+                        arma = "Fotos de animais fofinhos"
+                        print("Você tem uma arma: Fotos de animais fofinhos")
+                        
+                    elif escolha == "machado":
+                        moedas -= 10
+                        arma = "machado"
+                        print("Você tem como arma: machado")
+                if nome_cenario_atual == "rico":
+                    if escolha == "fotos de animais fofinhos":
+                         moedas -= 5
+                         arma = "Fotos de animais fofinhos"
+                         print("Você tem uma arma: Fotos de animais fofinhos")
+                        
+                    elif escolha == "machado":
+                         moedas -= 10
+                         arma = "machado"
+                         print("Você tem como arma: machado") 
+                        
+                    elif escolha == "comida":
+                         moedas -= 16
+                         arma = "comida"
+                         print("Você tem como arma: comida")
+                         
                         
                 if nome_cenario_atual == "luta":
                     if arma == "fotos de animais fofinhos":
