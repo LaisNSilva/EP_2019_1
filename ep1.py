@@ -375,7 +375,7 @@ def main():
                     elif moedas >= 16:
                         nome_cenario_atual = "rico"
                                                 
-                if nome_cenario_atual == "luta":
+                if nome_cenario_atual == "lutar":
                     if arma == "fotos de animais fofinhos":
                         nome_cenario_atual = "usar fotos de animais fofinhos"
                     if arma == "machado":
