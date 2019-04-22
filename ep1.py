@@ -34,7 +34,7 @@ def carregar_cenarios():
             }
         },
         "pobre":{
-                "titulo":"compre uma arma",
+                "titulo":"compre uma arma ou volte para o andar do professor",
                 "descricao":"você deve escolher uma das opções",
                 "opcoes":{
                         "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
@@ -42,7 +42,7 @@ def carregar_cenarios():
              }
         },
         "médio":{
-                "titulo":"compre uma arma",
+                "titulo":"compre uma arma ou volte para o andar do professor",
                 "descricao":"você deve escolher uma das opções",
                 "opcoes":{
                         "fotos de animais fofinhos":" Tente amolecer o coração do professor por 5 moedas",
@@ -51,7 +51,7 @@ def carregar_cenarios():
               }
         },
         "rico":{
-                "titulo":"compre uma arma",
+                "titulo":"compre uma arma ou volte para o andar do professor",
                 "descricao":"você deve escolher uma das opções",
                 "opcoes":{
                         "fotos de animais fofinhos": "Tente amolecer o coração do professor por 5 moedas",
@@ -114,7 +114,8 @@ def carregar_cenarios():
                 "titulo": "Você acertou em cheio!",
                 "descricao": "Esse golpe é fatal para o monstro, você venceu e ficou mais forte, GANHOU 8 PONTOS E 5 MOEDAS",
                 "opcoes":{
-                        "recepcao": "Voltar para o saguão de entrada"
+                        "recepcao": "Voltar para o saguão de entrada",
+                        "tele": "Você irá se teletransportar para algum local. E aí, vai arriscar?!"
             }
         },
         "fab lab":{
@@ -225,7 +226,7 @@ def carregar_cenarios():
                 "opcoes": {}
         },
         "lutar":{
-                "titulo": " é hora de usar a rama que você comprou ",
+                "titulo": " é hora de usar a arma que você comprou ",
                 "descricao": "Agora só porque adiou o EP, acha que vai conseguir mais coisa do Raul? Achou errado, infelizmente",
                 "opcoes": {
                         "usar fotos de animais fofinhos": "teste a sensibilidade do professor",
@@ -235,7 +236,7 @@ def carregar_cenarios():
         },
         "usar fotos de animais fofinhos":{
                 "titulo": "arma arriscada",
-                "descricao":"o professor ignorou os fafuras, ele é uma criatura cruel",
+                "descricao":"o professor ignorou os fofuras, ele é uma criatura cruel",
                 "opcoes":{
                         "terminar": "fim do jogo"
                 }
